@@ -1,6 +1,7 @@
 ##Spring Configuration
 server:
   port: 8080
+
 spring:
   application:
     name: auth-service
@@ -12,3 +13,12 @@ spring:
       path: /h2
   profiles:
     include:
+
+adapters:
+  r2dbc:
+    host: ${PG_HOST:localhost}
+    port: ${PG_PORT:5432}
+    database: ${PG_DB}
+    schema: ${PG_SCHEMA:public}
+    username: ${PG_USER:postgres}
+    password: ${PG_PASSWORD}
