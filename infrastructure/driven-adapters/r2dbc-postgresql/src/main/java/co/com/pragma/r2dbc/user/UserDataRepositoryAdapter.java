@@ -15,7 +15,7 @@ public class UserDataRepositoryAdapter extends ReactiveAdapterOperations<
         UserDataRepository
 > implements UserRepository {
     public UserDataRepositoryAdapter(UserDataRepository repository, ObjectMapper mapper) {
-        super(repository, mapper, d -> mapper.mapBuilder(d, User.UserBuilder.class).build());
+        super(repository, mapper, d -> mapper.map(d, User.class));
     }
 
     @Override

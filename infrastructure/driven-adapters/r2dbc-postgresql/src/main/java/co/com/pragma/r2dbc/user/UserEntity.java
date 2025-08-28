@@ -1,22 +1,20 @@
 package co.com.pragma.r2dbc.user;
 
-import co.com.pragma.model.user.User;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import org.springframework.data.relational.core.mapping.Table;
 import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-@Table(name = "users")
+@Table("users")
 public class UserEntity {
 
     @Id

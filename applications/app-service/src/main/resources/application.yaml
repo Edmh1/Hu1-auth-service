@@ -1,24 +1,32 @@
-##Spring Configuration
 server:
   port: 8080
-
 spring:
   application:
-    name: auth-service
+    name: "auth-service"
   devtools:
     add-properties: false
   h2:
     console:
       enabled: true
-      path: /h2
+      path: "/h2"
   profiles:
-    include:
-
+    include: null
 adapters:
   r2dbc:
-    host: ${PG_HOST:localhost}
-    port: ${PG_PORT:5432}
-    database: ${PG_DB}
-    schema: ${PG_SCHEMA:public}
-    username: ${PG_USER:postgres}
-    password: ${PG_PASSWORD}
+    host: "${PG_HOST:localhost}"
+    port: "${PG_PORT:5432}"
+    database: "${PG_DB}"
+    schema: "${PG_SCHEMA:public}"
+    username: "${PG_USER:postgres}"
+    password: "${PG_PASSWORD}"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+cors:
+  allowed-origins: "http://localhost:4200,http://localhost:8080"
